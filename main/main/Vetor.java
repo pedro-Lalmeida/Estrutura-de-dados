@@ -64,6 +64,7 @@ public class Vetor {
         return false;
     }
 
+    // retorna o elemento
     public String buscar(int posicao) {
         if (!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalStateException("Posição inválida!");
@@ -71,6 +72,7 @@ public class Vetor {
         return elementos[posicao];
     }
 
+    // retorna o indice
     public int buscar(String elemento) {
         for (int i = 0; i < this.tamanho; i++) {
             if (this.elementos[i].equals(elemento)) {
@@ -198,6 +200,22 @@ public class Vetor {
         return adicionar(elemento);
     }
 
-    // NÃO ENTENDI COMO FAZ O 16 -> inserirDepois
+    public boolean inserirDepois(String referencia, String novoElemento) {
+        int posicaoRef = buscar(referencia);
+
+        if (posicaoRef == -1) {
+            return false;
+        }
+
+        int novaPosicao = posicaoRef + 1;
+
+        if (tamanho < elementos.length) {
+            adicionar(novaPosicao, novoElemento);
+            return true;
+        }
+
+        return false;
+
+    }
 
 }
