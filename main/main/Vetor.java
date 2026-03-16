@@ -10,6 +10,8 @@ public class Vetor {
         this.tamanho = 0;
     }
 
+    // if -> verifica se tem espaço
+    // adiciona com base no tamanho disponível
     public boolean adicionar(String elemento) {
         if (tamanho < elementos.length) {
             elementos[tamanho] = elemento;
@@ -19,6 +21,11 @@ public class Vetor {
         return false;
     }
 
+    // adicona com base na posição
+    // if -> verifica se a posição é válida
+    // for -> percorre do final até a posição
+    // empurra os outro elementos para a direita
+    // adiciona na posição que colocou e aumenta o tamanho
     public void adicionar(int posicao, String elemento) {
         if (!(posicao >= 0 && posicao <= tamanho)) {
             throw new IllegalStateException("Posicao inválida!");
@@ -35,11 +42,7 @@ public class Vetor {
     }
 
     public boolean estaVazia() {
-        if (tamanho == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.tamanho == 0;
     }
 
     public String ultimo() {
@@ -64,7 +67,7 @@ public class Vetor {
         return false;
     }
 
-    // retorna o elemento
+    // retorna o elemento pela posição
     public String buscar(int posicao) {
         if (!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalStateException("Posição inválida!");
@@ -72,7 +75,9 @@ public class Vetor {
         return elementos[posicao];
     }
 
-    // retorna o indice
+    // retorna o indice do elemento
+    // percorre a lista
+    // verifica se o elemento do índice é ao elemento recebido 
     public int buscar(String elemento) {
         for (int i = 0; i < this.tamanho; i++) {
             if (this.elementos[i].equals(elemento)) {
@@ -82,6 +87,9 @@ public class Vetor {
         return -1;
     }
 
+    // limpa o vetor
+    //percorre o vetor e cada elemento é colocado como null
+    // tamanho fica zero
     public void limpar() {
         for (int i = 0; i < tamanho; i++) {
             elementos[i] = null;
@@ -89,6 +97,9 @@ public class Vetor {
         tamanho = 0;
     }
 
+    // percorre o vetor 
+    // compara cada elemento
+    // retorna a ocorrências por um contador
     public int contarOcorrencias(String elemento) {
         int contador = 0;
 
@@ -101,6 +112,9 @@ public class Vetor {
         return contador;
     }
 
+    // percorre o vetor
+    // procura o elemento antigo
+    // o elemento antido é substituído pelo novo
     public boolean substituir(String antigo, String novo) {
 
         for (int i = 0; i < tamanho; i++) {
@@ -144,6 +158,9 @@ public class Vetor {
 
     // PARTES D, E e F
 
+    // percorre o vetor
+    // cada elemento recebe uma cópia do que está a direita
+    // o final fica com uma cópia e depois é removido
     public void remover(int posicao) {
 
         if (!(posicao >= 0 && posicao < tamanho)) {
@@ -158,6 +175,7 @@ public class Vetor {
         tamanho--;
     }
 
+    // remove o elemento de acordo com a posição
     public boolean remove(String elemento) {
 
         int posicao = buscar(elemento);
@@ -170,6 +188,10 @@ public class Vetor {
         return true;
     }
 
+
+    // busca a ultima ocorrência do elemento no vetor
+    // for percorre de trás para frente
+    //verifica se o elemento é o mesmo e retorna o índice
     public int indiceUltimo(String elemento) {
 
         for (int i = tamanho - 1; i >= 0; i--) {
@@ -183,6 +205,7 @@ public class Vetor {
         return -1;
     }
 
+    // remove todos os elementos com while
     public void removerTodos(String elemento) {
 
         while (remove(elemento)) {
@@ -191,6 +214,8 @@ public class Vetor {
 
     }
 
+    // verifica se o elemento existe no vetor
+    // se sim retorna false e se não, adiciona usando o método
     public boolean adicionarSeNaoExiste(String elemento) {
 
         if (contem(elemento)) {
@@ -200,6 +225,10 @@ public class Vetor {
         return adicionar(elemento);
     }
 
+    // adiciona o elemento depois de outro
+    // busca a posição do elemento de referência
+    // cria uma nova posição a direita do elemento de referência
+    // adiciona na nova posição
     public boolean inserirDepois(String referencia, String novoElemento) {
         int posicaoRef = buscar(referencia);
 

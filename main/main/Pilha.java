@@ -13,7 +13,9 @@ public class Pilha {
         public boolean estaVazia(){
             return this.tamanho == 0;
         }
-        
+
+        // if/else -> verifica se tem espaço
+        // adiciona se tiver espaço
         public boolean empilha(String elemento){
             if (this.tamanho < this.elementos.length) {
                 this.elementos[this.tamanho] = elemento;
@@ -25,6 +27,9 @@ public class Pilha {
             return false;
         }
 
+        // estaVazia() -> verifica se tem espaço
+        // removido -> quarda o elemento que vai ser removido
+        // this.elementos[tamanho-1] = null -> o ultimo elemento é removido
         public String desempilha() {
             if (estaVazia()){
                 return null;
