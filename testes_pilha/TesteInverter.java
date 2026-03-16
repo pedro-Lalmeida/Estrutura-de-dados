@@ -9,10 +9,13 @@ public class TesteInverter {
 
         Pilha pilhaInversora = new Pilha(palavra.length());
 
+        // converte cada char em string e empilha
         for (int i = 0; i < palavra.length(); i++) {
             pilhaInversora.empilha(String.valueOf(palavra.charAt(i)));
         }
 
+        // cria uma variável para armazenar a palavra
+        // a variável resultado vai receber cada letra de forma invertida
         String resultado = "";
             while (!pilhaInversora.estaVazia()) {
                 resultado += pilhaInversora.desempilha();

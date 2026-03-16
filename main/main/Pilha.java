@@ -13,7 +13,7 @@ public class Pilha {
         public boolean estaVazia(){
             return this.tamanho == 0;
         }
-
+        
         public boolean empilha(String elemento){
             if (this.tamanho < this.elementos.length) {
                 this.elementos[this.tamanho] = elemento;
