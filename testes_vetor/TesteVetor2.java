@@ -1,4 +1,4 @@
-package testes;
+package testes_vetor;
 import main.Vetor;
 
 public class TesteVetor2 {

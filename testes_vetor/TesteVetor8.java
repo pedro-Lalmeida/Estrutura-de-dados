@@ -1,7 +1,8 @@
-package testes;
+package testes_vetor;
+
 import main.Vetor;
 
-public class TesteVetor7 {
+public class TesteVetor8 {
     public static void main(String[] args) {
 
         Vetor vetor = new Vetor(10);
@@ -9,16 +10,12 @@ public class TesteVetor7 {
         vetor.adicionar("A");
         vetor.adicionar("B");
         vetor.adicionar("C");
+        vetor.adicionar("B");
         vetor.adicionar("D");
-        vetor.adicionar("E");
 
-        vetor.remover(0);
+        vetor.remove("B");
         vetor.imprimir();
 
-        vetor.remover(1);
-        vetor.imprimir();
-
-        vetor.remover(vetor.tamanho() - 1);
-        vetor.imprimir();
+        System.out.println(vetor.remove("X"));
     }
 }

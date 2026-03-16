@@ -1,7 +1,8 @@
-package testes;
-import main.Vetor;
-public class TesteVetor9 {
+package testes_vetor;
 
+import main.Vetor;
+
+public class TesteVetor10 {
     public static void main(String[] args) {
 
         Vetor vetor = new Vetor(10);
@@ -13,6 +14,8 @@ public class TesteVetor9 {
         vetor.adicionar("D");
         vetor.adicionar("B");
 
-        System.out.println(vetor.indiceUltimo("B"));
+        vetor.removerTodos("B");
+
+        vetor.imprimir();
     }
 }

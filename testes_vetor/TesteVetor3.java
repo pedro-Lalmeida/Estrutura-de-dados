@@ -1,4 +1,4 @@
-package testes;
+package testes_vetor;
 
 import main.Vetor;
 
@@ -20,6 +20,8 @@ public class TesteVetor3 {
 
         vetor.adicionar("Marcos");
         vetor.adicionar("Aldo");
+
+        System.out.println("================================================================");
 
         try {
 
