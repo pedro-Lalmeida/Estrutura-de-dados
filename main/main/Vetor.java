@@ -133,7 +133,7 @@ public class Vetor {
         StringBuilder s = new StringBuilder();
         s.append("[");
 
-        for (int i = 0; i < tamanho; i++) {
+        for (int i = 0; i < tamanho-1; i++) {
             s.append(elementos[i]);
             s.append(", ");
         }

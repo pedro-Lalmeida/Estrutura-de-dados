@@ -17,6 +17,6 @@ public class TesteVetor1 {
         vetor.imprimir();
 
         System.out.println("Elementos um por linha:");
-        vetor.imprimeUmPorLinha();
+        vetor.imprimeUmPorLinha();    
     }
 }
