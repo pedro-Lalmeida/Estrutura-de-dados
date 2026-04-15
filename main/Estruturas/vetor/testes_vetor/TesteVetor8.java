@@ -1,7 +1,7 @@
-package testes_vetor;
-import main.Vetor;
-public class TesteVetor9 {
+package Estruturas.vetor.testes_vetor;
+import Estruturas.vetor.Vetor;
 
+public class TesteVetor8 {
     public static void main(String[] args) {
 
         Vetor vetor = new Vetor(10);
@@ -11,8 +11,10 @@ public class TesteVetor9 {
         vetor.adicionar("C");
         vetor.adicionar("B");
         vetor.adicionar("D");
-        vetor.adicionar("B");
 
-        System.out.println(vetor.indiceUltimo("B"));
+        vetor.remove("B");
+        vetor.imprimir();
+
+        System.out.println(vetor.remove("X"));
     }
 }

@@ -1,6 +1,5 @@
-package testes_vetor;
-
-import main.Vetor;
+package Estruturas.vetor.testes_vetor;
+import Estruturas.vetor.Vetor;
 
 public class TesteVetor3 {
 

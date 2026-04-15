@@ -1,5 +1,5 @@
-package testes_vetor;
-import main.Vetor;
+package Estruturas.vetor.testes_vetor;
+import Estruturas.vetor.Vetor;
 
 public class TesteVetor5 {
 
@@ -12,9 +12,9 @@ public class TesteVetor5 {
         vetor.adicionar("José");
         vetor.adicionar("José");
 
-        int total = vetor.contarOcorrencias("José");
+        
 
-        System.out.println("José aparece: " + total + " vezes");
+        System.out.println("José aparece: " + vetor.contarOcorrencias("José") + " vezes");
 
     }
 }

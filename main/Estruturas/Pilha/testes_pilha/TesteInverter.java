@@ -1,6 +1,6 @@
-package testes_pilha;
+package Estruturas.Pilha.testes_pilha;
+import Estruturas.Pilha.Pilha;
 
-import main.Pilha;
 
 public class TesteInverter {
     public static void main(String[] args) {

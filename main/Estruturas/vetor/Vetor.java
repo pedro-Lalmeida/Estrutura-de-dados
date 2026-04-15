@@ -1,4 +1,4 @@
-package main;
+package Estruturas.vetor;
 
 public class Vetor {
 
@@ -77,7 +77,7 @@ public class Vetor {
 
     // retorna o indice do elemento
     // percorre a lista
-    // verifica se o elemento do índice é ao elemento recebido 
+    // verifica se o elemento do índice é ao elemento recebido
     public int buscar(String elemento) {
         for (int i = 0; i < this.tamanho; i++) {
             if (this.elementos[i].equals(elemento)) {
@@ -88,7 +88,7 @@ public class Vetor {
     }
 
     // limpa o vetor
-    //percorre o vetor e cada elemento é colocado como null
+    // percorre o vetor e cada elemento é colocado como null
     // tamanho fica zero
     public void limpar() {
         for (int i = 0; i < tamanho; i++) {
@@ -97,7 +97,7 @@ public class Vetor {
         tamanho = 0;
     }
 
-    // percorre o vetor 
+    // percorre o vetor
     // compara cada elemento
     // retorna a ocorrências por um contador
     public int contarOcorrencias(String elemento) {
@@ -133,7 +133,7 @@ public class Vetor {
         StringBuilder s = new StringBuilder();
         s.append("[");
 
-        for (int i = 0; i < tamanho-1; i++) {
+        for (int i = 0; i < tamanho - 1; i++) {
             s.append(elementos[i]);
             s.append(", ");
         }
@@ -188,10 +188,9 @@ public class Vetor {
         return true;
     }
 
-
     // busca a ultima ocorrência do elemento no vetor
     // for percorre de trás para frente
-    //verifica se o elemento é o mesmo e retorna o índice
+    // verifica se o elemento é o mesmo e retorna o índice
     public int indiceUltimo(String elemento) {
 
         for (int i = tamanho - 1; i >= 0; i--) {

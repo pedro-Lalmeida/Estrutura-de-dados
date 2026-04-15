@@ -1,6 +1,5 @@
-package testes_pilha;
-
-import main.Pilha;
+package Estruturas.Pilha.testes_pilha;
+import Estruturas.Pilha.Pilha;
 
 public class TestePalindromo {
     public static void main(String[] args) {
