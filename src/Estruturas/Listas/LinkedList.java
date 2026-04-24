@@ -6,6 +6,8 @@ public class LinkedList<T> {
     private No<T> ultimo;
     private int tamanho;
 
+    private final int NAO_ENCONTRADO = -1;
+
     // lógicas implementadas: inserir no final
     public void adiciona(T elemento) {
         No<T> celula = new No<T>(elemento);
@@ -37,8 +39,49 @@ public class LinkedList<T> {
         }
 
         this.inicio = null; // resetando o início da lista
-        this.ultimo = null; // resetando o último da lista  
-        this.tamanho = 0; // resetando o tamanho da lista   
+        this.ultimo = null; // resetando o último da lista
+        this.tamanho = 0; // resetando o tamanho da lista
+    }
+
+    private No<T> buscaNo(int posicao) {
+
+        // vrifica se a paosição não existe
+        if (!(posicao >= 0 && posicao <= this.tamanho)) {
+            throw new IllegalArgumentException("Posição inválida: não existe na lista.");
+        }
+
+        No<T> atual = this.inicio;
+
+        for (int i = 1; i < posicao; i++) {
+            atual = atual.getProximo();
+        }
+
+        return atual;
+    }
+
+    // busca o elemento na posição
+    // retorna o elemento
+    public T buscaPorPosicao(int posicao) {
+        return this.buscaNo(posicao).getElemento();
+    }
+
+    // busca por elemento
+    // retorna a posição
+    public int busca(T elemento) {
+
+        int posicao = 0;
+
+        for (No<T> atual = this.inicio; atual != null;) {
+
+            if (atual.getElemento().equals(elemento)) {
+                return posicao;
+            }
+
+            posicao++;
+            atual = atual.getProximo(); // recebe o valor do proximo para interar
+        }
+
+        return NAO_ENCONTRADO;
     }
 
     // lógicas implementadas: percerrendo a lista
