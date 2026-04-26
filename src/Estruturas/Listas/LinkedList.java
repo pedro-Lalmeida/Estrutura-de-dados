@@ -22,6 +22,48 @@ public class LinkedList<T> {
         this.tamanho++;
     }
 
+    // inseri no inicio
+    public void adicionainicio(T elemento) {
+
+        if (this.tamanho == 0) {
+            No<T> novoNo = new No<>(elemento);
+            this.inicio = novoNo;
+            this.ultimo = novoNo;
+        } else {
+            No<T> novoNo = new No<T>(elemento, this.inicio);
+            this.inicio = novoNo;
+        }
+
+        this.tamanho++;
+    }
+
+    /*
+     * lÓGICA DE INSERIR NO MEIO:
+     * 1. cria uma referêncio do elemento que está inserido para outro posterior
+     * 2. apaga a referência do No anterior que estava referenciando
+     * 3. liga o No anterior para o novo No que será inserido no meio
+     */
+    public void adiciona(int posicao, T elemento) {
+
+        // se a posicao não for válida
+        if (posicao < 0 || posicao > this.tamanho) {
+            throw new IllegalArgumentException("Posição inválida: não existe na lista.");
+        }
+
+        if (posicao == 0) { // esta vazia
+            this.adicionainicio(elemento); // inseri no inicio
+        } else if (posicao == this.tamanho) {
+            this.adiciona(elemento); // inseri no final
+        } else { // meio
+            No<T> noAnterior = this.buscaNo(posicao);
+            No<T> proximoNo = noAnterior.getProximo();
+            No<T> novoNo = new No<>(elemento, proximoNo);
+            noAnterior.setProximo(novoNo);
+            this.tamanho++;
+        }
+
+    }
+
     public int getTamanho() {
         return tamanho;
     }
@@ -45,14 +87,14 @@ public class LinkedList<T> {
 
     private No<T> buscaNo(int posicao) {
 
-        // vrifica se a paosição não existe
-        if (!(posicao >= 0 && posicao <= this.tamanho)) {
-            throw new IllegalArgumentException("Posição inválida: não existe na lista.");
+        // verifica se a paosição não é válida
+        if (posicao < 0 || posicao >= this.tamanho) {
+            throw new IllegalArgumentException("Posição inválida.");
         }
 
         No<T> atual = this.inicio;
 
-        for (int i = 1; i < posicao; i++) {
+        for (int i = 0; i < posicao; i++) {
             atual = atual.getProximo();
         }
 
@@ -82,6 +124,15 @@ public class LinkedList<T> {
         }
 
         return NAO_ENCONTRADO;
+    }
+
+    public void trocar(int posicaoA, int posicaoB) {
+        No<T> noA = this.buscaNo(posicaoA);
+        No<T> noB = this.buscaNo(posicaoB);
+
+        T temp = noA.getElemento(); // guarda o valor de A temporariamente
+        noA.setElemento(noB.getElemento()); // A recebe o valor de B
+        noB.setElemento(temp); // B recebe o valor guardado (antigo A)
     }
 
     // lógicas implementadas: percerrendo a lista
