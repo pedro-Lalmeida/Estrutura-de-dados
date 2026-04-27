@@ -135,6 +135,33 @@ public class LinkedList<T> {
         noB.setElemento(temp); // B recebe o valor guardado (antigo A)
     }
 
+    public boolean contem(T elemento) {
+        for (No<T> atual = this.inicio; atual != null; atual = atual.getProximo()) {
+            if (atual.getElemento().equals(elemento)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public T pegaPrimeiro() {
+        if (this.tamanho == 0) {
+            throw new IllegalStateException("A lista está vazia.");
+        }
+        return this.inicio.getElemento();
+    }
+
+    public T pegaUltimo() {
+        if (this.tamanho == 0) {
+            throw new IllegalStateException("A lista está vazia.");
+        }
+        return this.ultimo.getElemento();
+    }
+
+    public T pega(int posicao) {
+        return this.buscaNo(posicao).getElemento();
+    }
+
     // lógicas implementadas: percerrendo a lista
     @Override
     public String toString() {
